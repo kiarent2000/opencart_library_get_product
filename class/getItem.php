@@ -1,17 +1,19 @@
 <?php
 class getItem
 {
+    public $product_id;
+    
     public function __construct($product_id)
     {
         $this->product_id=$product_id;
     }
 
-    public function get($dbh)
+    public function get($db)
     {
-        $sql = 'SELECT a.model, a.sku, a.jan, a.quantity, a.stock_status_id, a.image, a.manufacturer_id, a.price, a.date_modified FROM '. DB_PREFIX.'_product a WHERE `product_id` = '.$this->product_id;
-        $sth = $dbh->query($sql);
-        $result = $sth->fetch();
-       
-        return $result;
+        $sql = 'SELECT a.model, a.sku, a.jan, a.quantity, a.stock_status_id, a.image, a.manufacturer_id, a.price, a.date_modified, b.name, b.description FROM '. DB_PREFIX.'_product a, '. DB_PREFIX.'_product_description b WHERE a.product_id = '.$this->product_id.' AND b.product_id=a.product_id';
+        
+		$result = mysqli_query($db, $sql);
+		$row = mysqli_fetch_assoc($result);
+		return $row;
     }
 }

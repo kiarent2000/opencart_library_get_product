@@ -6,11 +6,11 @@ spl_autoload_register(function ($class) {
 });
 
 include(__DIR__.'/config.php');
-$dbh = DB::getInstance()->connect();
+$con = (new DB())->connect();
 
 
 
-$item = (new getItem(50))->get($dbh);
+$item = (new getItem(50))->get($con);
 
 print_r($item);
 
