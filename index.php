@@ -9,10 +9,10 @@ include(__DIR__.'/config.php');
 $dbh = DB::getInstance()->connect();
 
 
-print_r($dbh);
 
+$item = (new getItem(50))->get($dbh);
 
-
+print_r($item);
 
 
 /*
