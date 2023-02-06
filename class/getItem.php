@@ -17,7 +17,7 @@ class getItem
     public function getAll($db)
     {
         $sql = 'SELECT  `product_id`    
-        FROM '. DB_PREFIX.'_product ORDER BY `product_id` DESC LIMIT 10';
+        FROM '. DB_PREFIX.'_product ORDER BY `product_id`';
 		$result = mysqli_query($db, $sql);
 		while( $row = mysqli_fetch_assoc($result)){$arr[] = $row;}
 		return $arr;

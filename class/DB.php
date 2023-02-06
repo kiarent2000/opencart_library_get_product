@@ -19,7 +19,7 @@ class DB
 			echo "Нет соединения";
 			die("ERROR: Could not connect. " . mysqli_connect_error());
 			}
-		    mysqli_set_charset($conn , 'utf8' );
+		    mysqli_set_charset($conn , 'cp1251');
 			return $conn; 
 		}
 }	
