@@ -13,11 +13,20 @@ $con = (new DB())->connect();
 
 $items = $it->getAll($con);
 
+$fp = fopen('file.csv', 'w');
+
+
 foreach($items as $item)
 {
+    
+    
     $product = $it->get($con, $item['product_id']);
-    echo $item['product_id'];
-    print_r($product);
+
+   // print_r($product);
+ 
+    fputcsv($fp, $product, ';');   
 }
+
+fclose($fp);
 
 ?>
