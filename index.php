@@ -8,6 +8,14 @@ spl_autoload_register(function ($class) {
 include(__DIR__.'/config.php');
 $dbh = DB::getInstance()->connect();
 
+
+print_r($dbh);
+
+
+
+
+
+/*
 ##########################################################################
 include('item.php');  // загружаем тестовый продукт
 
@@ -23,7 +31,7 @@ if(!$product_id) // добавляем новый продук
 } else {    // обновляем существующий продукт
     echo "Обновляем продукт";
 }
-
+*/
 
 
 
