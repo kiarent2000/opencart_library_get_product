@@ -10,7 +10,7 @@ $con = (new DB())->connect();
 
 
 
-$item = (new getItem(50))->get($con);
+$item = (new getItem(122778))->get($con);
 
 print_r($item);
 
